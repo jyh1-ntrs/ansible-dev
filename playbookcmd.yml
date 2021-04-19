@@ -1,0 +1,10 @@
+---
+- name: a simple playbook to test ansible.cfg
+  hosts: planetexpress
+  gather_facts: yes
+
+  tasks: 
+  # the command module issues a command on the remote host
+  - name: issue a date command on each remote host
+    command: date
+
