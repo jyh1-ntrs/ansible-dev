@@ -1,0 +1,22 @@
+---
+- name: a simple playbook to rename 
+  hosts: renamed, !taz  # to exclude something, use ! special char
+  gather_facts: no
+  connection: ssh # by default is ssh
+  become: true
+
+  vars:
+          username: "jyh1"
+
+  tasks: 
+  # the command module issues a command on the remote host
+  - name: Ensure group "funkytown" exists 
+    ansible.builtin.group:
+            name: funkytown
+            state: present
+  tasks:
+  # the command module issues a command on the remote host
+  - name: add user
+    ansible.builtin.user:
+            name: "{{ username }}"
+            group: funkytown
