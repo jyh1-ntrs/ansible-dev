@@ -1,0 +1,14 @@
+---
+- name: learning how to use git
+  hosts: planetexpress
+
+  tasks:
+
+  - name: "create a git archive from a repo"
+    become_user: root
+    become: true
+    git:
+        repo: https://github.com/ansible/ansible-examples.git
+        dest: /home/statudent/ansible-examples/
+        archive: /tmp/READMEmd.zip
+
